@@ -214,30 +214,13 @@ class AppearanceModelPF(ParticleFilter):
     """A variation of particle filter tracker."""
 
     def __init__(self, frame, template, **kwargs):
-        """Initializes the appearance model particle filter.
-
-        The documentation for this class is the same as the ParticleFilter
-        above. There is one element that is added called alpha which is
-        explained in the problem set documentation. By calling super(...) all
-        the elements used in ParticleFilter will be inherited so you do not
-        have to declare them again.
-        """
+        """Initializes the appearance model particle filter."""
 
         super(AppearanceModelPF, self).__init__(frame, template, **kwargs)  # call base class constructor
-
-        self.alpha = kwargs.get('alpha')  # required by the autograder
-        # If you want to add more parameters, make sure you set a default value so that
-        # your test doesn't fail the autograder because of an unknown or None value.
-        #
-        # The way to do it is:
-        # self.some_parameter_name = kwargs.get('parameter_name', default_value)
+        self.alpha = kwargs.get('alpha') 
 
     def process(self, frame):
         """Processes a video frame (image) and updates the filter's state.
-
-        This process is also inherited from ParticleFilter. Depending on your
-        implementation, you may comment out this function and use helper
-        methods that implement the "Appearance Model" procedure.
 
         Args:
             frame (numpy.array): color BGR uint8 image of current video frame, values in [0, 255].
